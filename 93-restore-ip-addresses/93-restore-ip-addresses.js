@@ -23,7 +23,7 @@ var createCombination = function(str,dots,ipArray =[]){
     if(dots ==0) return;
     for(var i=1;i<=3 && i<=str.length;i++){
         createCombination(str.slice(i),dots-1,[...ipArray,str.slice(0,i)])
-        //if(i==1 && str.slice(0,i)=='0') break;
+        if(i==1 && str.slice(0,i)=='0') break;
     }
     
 }
