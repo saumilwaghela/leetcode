@@ -4,13 +4,13 @@
  */
 var maxArea = 0;
 var visited ;
-var currentArea = 0;
+//var currentArea = 0;
 var findArea = function(grid){
     for(var i=0;i<grid.length;i++){
         for(var j=0;j<grid[0].length;j++){
             if(grid[i][j]===1 && !visited[i][j]){
                 currentArea = 0
-                checkAdjacentArea(grid,i,j)
+                var currentArea = checkAdjacentArea(grid,i,j)
                 if(currentArea > maxArea) maxArea = currentArea;
             }
         }
@@ -24,13 +24,11 @@ var checkAdjacentArea = function(grid,currentX,currentY){
     if(grid[currentX][currentY] === 0|| visited[currentX][currentY]) return 0;
     if( grid[currentX][currentY]===1 && !visited[currentX][currentY]) {
         visited[currentX][currentY] = true;
-        ++currentArea;
-        return checkAdjacentArea(grid,currentX-1,currentY)
+        return 1+ checkAdjacentArea(grid,currentX-1,currentY)
           +checkAdjacentArea(grid,currentX+1,currentY)
           +checkAdjacentArea(grid,currentX,currentY-1)
           +checkAdjacentArea(grid,currentX,currentY+1) 
     }
-    return currentArea
 }
 var maxAreaOfIsland = function(grid) {
     maxArea=0;
