@@ -1,18 +1,22 @@
 class Solution {
-    Set<Integer> seenSet = new HashSet<Integer>();
+
+     public int getNext(int n) {
+        int totalSum = 0;
+        while (n > 0) {
+            int d = n % 10;
+            n = n / 10;
+            totalSum += d * d;
+        }
+        return totalSum;
+    }
+
     public boolean isHappy(int n) {
-        System.out.println(n);
-        int nextNumber =0;
-        while(n!=0){
-            nextNumber = nextNumber+ ((n%10)*(n%10));
-            n=n/10;
+        int slowRunner = n;
+        int fastRunner = getNext(n);
+        while (fastRunner != 1 && slowRunner != fastRunner) {
+            slowRunner = getNext(slowRunner);
+            fastRunner = getNext(getNext(fastRunner));
         }
-        if(seenSet.contains(nextNumber)){
-            return false;
-        }
-        else{
-            seenSet.add(nextNumber);
-        }
-        return nextNumber ==1?true:isHappy(nextNumber);
+        return fastRunner == 1;
     }
 }
