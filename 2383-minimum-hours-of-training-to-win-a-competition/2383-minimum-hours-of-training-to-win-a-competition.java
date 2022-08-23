@@ -14,24 +14,7 @@ class Solution {
             }
             currentEnergy -=energy[i];
             currentExperience +=experience[i];
-            System.out.println(i+"  currentEnergy="+currentEnergy+"   currentExperience="+currentExperience+"   minHoursOfPracticeNeeded="+minHoursOfPracticeNeeded);
-           //  if(currentEnergy>energy[i] && currentExperience>experience[i]){
-           //      currentEnergy-=energy[i];
-           //      currentExperience+=experience[i];
-           //      System.out.println(i+"  currentEnergy="+currentEnergy+"   currentExperience="+currentExperience+"   minHoursOfPracticeNeeded="+minHoursOfPracticeNeeded);
-           //      continue;
-           //  }
-           //  if(currentEnergy<=energy[i]){
-           //      System.out.println(i+"  energy is less");
-           //      minHoursOfPracticeNeeded += energy[i]-currentEnergy+1;
-           //      currentEnergy = 1; 
-           //  }
-           //  if(currentExperience<=experience[i]){
-           //      System.out.println(i+"  experience is less");
-           //      minHoursOfPracticeNeeded += experience[i]-currentExperience+1;
-           //  }
-           // currentExperience += experience[i]; 
-           // System.out.println(i+"  currentEnergy="+currentEnergy+"   currentExperience="+currentExperience+"   minHoursOfPracticeNeeded="+minHoursOfPracticeNeeded);
+            //System.out.println(i+"  currentEnergy="+currentEnergy+"   currentExperience="+currentExperience+"   minHoursOfPracticeNeeded="+minHoursOfPracticeNeeded);
         }
         return minHoursOfPracticeNeeded;
     }
