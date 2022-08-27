@@ -6,12 +6,13 @@ class Solution {
                 hmap.put(nums[i][j], hmap.getOrDefault(nums[i][j],0)+1);
             }
         }
-        TreeSet <Integer> set = new TreeSet<Integer>();
+        List <Integer> list = new ArrayList<Integer>();
         for(Map.Entry<Integer,Integer> entry: hmap.entrySet()){
             if(entry.getValue()==nums.length){
-                set.add(entry.getKey());
+                list.add(entry.getKey());
             }
         }
-        return new ArrayList(set);
+        Collections.sort(list);
+        return list;
     }
 }
