@@ -8,7 +8,7 @@ class Solution {
            if(ch=='('){
                stack.push('(');
                ++localCount;
-               maxValueOfDepth = Math.max(maxValueOfDepth,localCount);
+               if(maxValueOfDepth < localCount) maxValueOfDepth=localCount;
            }
            if(ch==')'){
                 stack.pop();
