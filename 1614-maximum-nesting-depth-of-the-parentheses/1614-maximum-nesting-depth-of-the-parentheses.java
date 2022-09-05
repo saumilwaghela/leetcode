@@ -11,10 +11,8 @@ class Solution {
                maxValueOfDepth = Math.max(maxValueOfDepth,localCount);
            }
            if(ch==')'){
-               if(!stack.empty()){
-                     stack.pop();
-                   --localCount;
-               }
+                stack.pop();
+                --localCount;
            }
             
         }
