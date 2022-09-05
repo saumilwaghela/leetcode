@@ -17,9 +17,6 @@ class Solution {
                }
            }
             
-           if(stack.empty()){
-               localCount =0;
-           }
         }
         return maxValueOfDepth;
     }
