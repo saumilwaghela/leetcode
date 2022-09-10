@@ -1,32 +1,26 @@
 class Solution {
+    public void counterHelper(int []nums,int arrayCount, TreeMap <Integer,TreeSet<Integer>> myMap){
+        for(int x:nums){
+          TreeSet<Integer> ts= myMap.getOrDefault(x,new TreeSet<Integer>());
+          ts.add(arrayCount);
+          myMap.put(x,ts);
+        }
+    }
     public List<Integer> twoOutOfThree(int[] nums1, int[] nums2, int[] nums3) {
-        Set<Integer> mySet = new TreeSet<Integer>();
+        int THRESHOLD_VALUE = 2;
+        List<Integer> myList = new ArrayList<Integer>();
         TreeMap <Integer,TreeSet<Integer>> myMap1 = new TreeMap<Integer,TreeSet<Integer>>();
         
-        for(int x:nums1){
-          TreeSet<Integer> ts= myMap1.getOrDefault(x,new TreeSet<Integer>());
-          ts.add(1);
-          myMap1.put(x,ts);
-        }
-        
-        for(int x:nums2){
-          TreeSet<Integer> ts= myMap1.getOrDefault(x,new TreeSet<Integer>());
-          ts.add(2);
-          myMap1.put(x,ts);
-        }
-        
-        for(int x:nums3){
-          TreeSet<Integer> ts= myMap1.getOrDefault(x,new TreeSet<Integer>());
-          ts.add(3);
-          myMap1.put(x,ts);
-        }
+        counterHelper(nums1,1,myMap1);
+        counterHelper(nums2,2,myMap1);
+        counterHelper(nums3,3,myMap1);
         
         for(Map.Entry<Integer,TreeSet<Integer>> entry: myMap1.entrySet()){
-            if(entry.getValue().size()>=2){
-                mySet.add(entry.getKey());
+            if(entry.getValue().size()>=THRESHOLD_VALUE){
+                myList.add(entry.getKey());
             }
         }
         
-        return new ArrayList<Integer>(mySet);
+        return myList;
     }
 }
