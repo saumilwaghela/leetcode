@@ -7,8 +7,8 @@ class Solution {
             outer:
             for(int j=0;j<ingredients.size();j++){
                 if(foundRecipe.contains(recipes[j]))continue;
-                for(String ingre:ingredients.get(j)){
-                    if(!availableSupplies.contains(ingre))continue outer;
+                for(String ingredient:ingredients.get(j)){
+                    if(!availableSupplies.contains(ingredient))continue outer;
                 }
                 foundRecipe.add(recipes[j]);
                 availableSupplies.add(recipes[j]);
