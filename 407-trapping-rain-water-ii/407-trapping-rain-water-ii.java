@@ -32,13 +32,6 @@ class Solution {
         }
     }
     
-//     public boolean isSafe(int[][] heightMap, boolean[][] visited, int x, int y){
-//         int b = heightMap[0].length;
-//         int l = heightMap.length;
-        
-//         if(x<0||x>l||y<0||y>b) return false;
-//         return visited[x][y]==false
-//     }
     
     public int trapRainWater(int[][] heightMap) {
         
